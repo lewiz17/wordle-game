@@ -6,4 +6,104 @@
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+@layer components {
+  main {
+    margin-top: 83px;
+    margin-bottom: 165px;
+  }
+  .hold-head {
+    max-width: 638px;
+    height: 84px;
+    border-radius: 15px;
+    background: #f3f3f3;
+    margin-bottom: 87px;
+  }
+  .header-title {
+    color: #202537;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+
+  .box-item {
+    width: 76px;
+    height: 76px;
+    border-radius: 5px;
+
+    font-size: 35px;
+    font-weight: 800;
+    @apply text-black;
+  }
+  .hold-keyboard {
+    max-width: 638px;
+    height: 238px;
+    border-radius: 15px;
+    margin-top: 43px;
+    @apply bg-gray3;
+  }
+  .box-key {
+    width: 44.665px;
+    height: 51.046px;
+    border-radius: 5px;
+
+    @apply text-black3;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .box-key.big {
+    width: 71.783px;
+    height: 51.046px;
+    font-size: 15px;
+  }
+
+  .modal {
+    max-width: 546px;
+    border: 1px solid #000;
+    @apply bg-gray5;
+    border-radius: 15px;
+  }
+  .modal-wrapper {
+    padding: 54px 26px 27px 42px;
+  }
+  .modal-wrapper h2 {
+    font-size: 35px;
+    @apply text-black;
+    font-weight: 800;
+    line-height: 41px;
+    text-align: center;
+  }
+  .info-content .demo-word {
+    list-style: none;
+    display: flex;
+    gap: 11px;
+    justify-content: center;
+  }
+  .info-content .demo-word li {
+    width: 76px;
+    height: 76px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @apply bg-white text-black border border-solid border-black;
+    font-size: 35px;
+    font-weight: 800;
+  }
+  .info-content .demo-word li.green {
+    @apply bg-green;
+  }
+  .info-content .demo-word li.yellow {
+    @apply bg-yellow;
+  }
+  .info-content .demo-word li.gray {
+    @apply bg-gray;
+  }
 }
