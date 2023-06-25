@@ -172,7 +172,7 @@ function App() {
         </div>
       </Modal>
 
-      <Modal isOpen={modalState.modalStats}>
+      <Modal isOpen={modalState.modalStats} type="stats">
         <h2>Estadísticas</h2>
         <div className="stats-content flex">
           <div className="flex justify-around">

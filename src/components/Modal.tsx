@@ -4,9 +4,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose?: () => void;
   children: ReactNode;
+  type?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, type }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const closeModal = () => {
@@ -23,9 +24,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className={`hold-modal inset-0 flex justify-center animate-fadeInW bg-whiteOverlay dark:bg-black`}
+      className={`hold-modal inset-0 flex ${
+        type ? type : ""
+      } justify-center animate-fadeInW`}
     >
-      <div className="modal absolute">
+      <div className="overlay bg-whiteOverlay"></div>
+      <div className="modal">
         {onClose && (
           <div className="flex justify-end">
             <button

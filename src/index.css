@@ -70,11 +70,24 @@
   }
   .hold-modal {
     position: absolute;
-    width: 100vw;
-    height: 100vw;
-    padding-top: 57px;
     z-index: 100;
   }
+  .hold-modal .overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+  .hold-modal.stats {
+    align-items: center;
+    position: fixed;
+  }
+  .hold-modal .modal {
+    margin-top: 57px;
+  }
+  .hold-modal.stats .modal {
+    margin-top: 0px;
+  }
+
   .modal {
     max-width: 546px;
     width: 100%;
@@ -82,6 +95,7 @@
     border: 1px solid #000;
     @apply bg-gray5;
     border-radius: 15px;
+    position: absolute;
   }
   .modal-wrapper {
     padding: 54px 16px 27px 42px;
