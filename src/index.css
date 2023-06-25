@@ -87,6 +87,9 @@
   .hold-modal.stats .modal {
     margin-top: 0px;
   }
+  .hold-modal.stats .modal .modal-wrapper {
+    padding: 54px 0px 27px 0px;
+  }
 
   .modal {
     max-width: 546px;
