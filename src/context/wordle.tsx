@@ -58,7 +58,8 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
 
   const isWinner = attempts[currentAttempt - 1] === wordChosen;
 
-  const isLostGame = currentAttempt === 5;
+  const isLostGame =
+    currentAttempt === 5 && attempts[currentAttempt - 1] !== wordChosen;
 
   const allAttempts = attempts.slice(0, currentAttempt).join("").split("");
 
@@ -107,8 +108,6 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
       });
       return;
     }
-
-    console.log(attempts);
 
     if (attempts[currentAttempt].length < 5 && /^[A-z]$/i.test(key)) {
       setAttempts((prevAttempts) => {
