@@ -2,12 +2,7 @@
 
 ## React, Typescript, Tailwind CSS
 
-### Captura
-<p style="text-align:center">
-    <img src="https://img001.prntscr.com/file/img001/vD190PNCSgGnqizmURq6zw.png" width="200px" height="200px" />
-</p>
-
-[**Demo!**](https://wordle-ea.netlify.app/)
+[**Ver Demo**](https://wordle-ea.netlify.app/)
 
 - [x] Deberá detectar que es la primera vez que entra y deberá mostrar las instrucciones
 del juego
