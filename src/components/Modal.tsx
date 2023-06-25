@@ -23,9 +23,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-50 animate-fadeInW bg-whiteOverlay dark:bg-black`}
+      className={`hold-modal inset-0 flex justify-center animate-fadeInW bg-whiteOverlay dark:bg-black`}
     >
-      <div className="modal">
+      <div className="modal absolute">
         {onClose && (
           <div className="flex justify-end">
             <button

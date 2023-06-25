@@ -17,6 +17,11 @@
     margin-top: 83px;
     margin-bottom: 165px;
   }
+  .center-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .hold-head {
     max-width: 638px;
     height: 84px;
@@ -63,15 +68,23 @@
     height: 51.046px;
     font-size: 15px;
   }
-
+  .hold-modal {
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    padding-top: 57px;
+    z-index: 100;
+  }
   .modal {
     max-width: 546px;
+    width: 100%;
+    overflow: auto;
     border: 1px solid #000;
     @apply bg-gray5;
     border-radius: 15px;
   }
   .modal-wrapper {
-    padding: 54px 26px 27px 42px;
+    padding: 54px 16px 27px 42px;
   }
   .modal-wrapper h2 {
     font-size: 35px;
@@ -79,6 +92,22 @@
     font-weight: 800;
     line-height: 41px;
     text-align: center;
+    padding-bottom: 32px;
+  }
+  .modal-wrapper p {
+    font-size: 19px;
+    @apply text-black;
+  }
+  .info-content span.sub {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    margin-top: 16px;
+    display: inline-block;
+  }
+  .info-content .line-text {
+    margin-top: 19px;
+    margin-bottom: 23px;
   }
   .info-content .demo-word {
     list-style: none;
@@ -105,5 +134,26 @@
   }
   .info-content .demo-word li.gray {
     @apply bg-gray;
+  }
+  .stats-content {
+    display: flex;
+    flex-flow: column;
+  }
+  .stats-content .item-stat {
+    font-size: 21px;
+  }
+  .stats-content .item-stat span {
+    font-size: 35px;
+    font-weight: 800;
+  }
+
+  .button {
+    width: 256px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    @apply bg-green text-white;
   }
 }

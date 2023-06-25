@@ -24,7 +24,7 @@ function App() {
     modalStats: false,
     modalInfo: false,
   });
-  const REMAIN_MINS = 3;
+  const REMAIN_MINS = 5;
   const [gameTime, setGameTime] = useState(REMAIN_MINS);
   const [remainingTime, setRemainingTime] = useState(gameTime * 60);
 
@@ -124,6 +124,7 @@ function App() {
           tan cerca estás de acertar la palabra.
         </p>
         <div className="info-content">
+          <span className="sub">Ejemplos:</span>
           <ul className="demo-word">
             <li className="green">G</li>
             <li>A</li>
@@ -131,6 +132,10 @@ function App() {
             <li>O</li>
             <li>S</li>
           </ul>
+          <p className="line-text">
+            La letra <strong>G</strong> está en la palabra y en la posición
+            correcta.
+          </p>
           <ul className="demo-word">
             <li>V</li>
             <li>O</li>
@@ -138,6 +143,10 @@ function App() {
             <li>A</li>
             <li>L</li>
           </ul>
+          <p className="line-text">
+            La letra <strong>C</strong> está en la palabra pero en la posición
+            incorrecta.
+          </p>
           <ul className="demo-word">
             <li>C</li>
             <li>A</li>
@@ -145,20 +154,56 @@ function App() {
             <li>T</li>
             <li className="gray">O</li>
           </ul>
+          <p className="line-text">
+            La letra <strong>O</strong> no está en la palabra.
+          </p>
+          <p className="mb-[31px]">
+            Puede haber letras repetidas. Las pistas son independientes para
+            cada letra.
+          </p>
+          <p className="flex items-center justify-center h-[52px] mb-[34px]">
+            ¡Una palabra nueva cada 5 minutos!
+          </p>
         </div>
-        <button onClick={handleModalInfo}>Jugar!</button>
+        <div className="center-full">
+          <button className="button uppercase " onClick={handleModalInfo}>
+            ¡Jugar!
+          </button>
+        </div>
       </Modal>
 
       <Modal isOpen={modalState.modalStats}>
-        <h2>Estadisticas</h2>
-        <div className="flex">
-          <span>{totalMatch} Jugadas</span>
-          <span>{winnerMatch} Victorias</span>
-          {isLostGame && <p>La palabra es: {wordChosen}</p>}
-          <p>Siguiente Palabra: {formatTime()}</p>
-          <button onClick={handleModalStats} className="btn btn-green">
-            Aceptar
-          </button>
+        <h2>Estadísticas</h2>
+        <div className="stats-content flex">
+          <div className="flex justify-around">
+            <div className="item-stat flex flex-col items-center">
+              <span>{totalMatch}</span> Jugadas
+            </div>
+            <div className="item-stat flex flex-col items-center">
+              <span>{winnerMatch}</span> Victorias
+            </div>
+          </div>
+          {isLostGame && (
+            <p className="flex justify-center items-center text-[19px] h-[52px] mt-[43px]">
+              La palabra era:
+              <strong className="uppercase ml-[5px]">{wordChosen}</strong>
+            </p>
+          )}
+          <p
+            className={`flex flex-col items-center ${
+              isLostGame ? "mt-[7px]" : "mt-[57px]"
+            }  mb-[30px] uppercase text-[19px]`}
+          >
+            <span className="flex items-center h-[52px]">
+              Siguiente Palabra:
+            </span>
+            <strong className="text-[24px] font-[700]">{formatTime()}</strong>
+          </p>
+          <div className="center-full">
+            <button className="button" onClick={handleModalStats}>
+              Aceptar
+            </button>
+          </div>
         </div>
       </Modal>
     </main>
