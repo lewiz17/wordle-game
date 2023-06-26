@@ -1,11 +1,10 @@
-import wordsData from "../words.json";
-
 import {
   createContext,
   useState,
   useContext,
   ReactNode,
   useCallback,
+  useEffect,
 } from "react";
 
 interface Words {
@@ -13,7 +12,6 @@ interface Words {
 }
 
 interface GameContextProps {
-  wordList: Words;
   filteredWords: string[];
   wordChosen: string;
   attempts: string[];
@@ -36,13 +34,27 @@ interface GameContextProps {
 const GameContext = createContext<GameContextProps | null>(undefined);
 
 const WordleProvider = ({ children }: { children: ReactNode }) => {
-  const [wordList, setWordList] = useState<Words>(wordsData as Words);
+  const [wordList, setWordList] = useState<Words>({ words: [] });
   const [wordChosen, setWordChosen] = useState<string>("");
   const [attempts, setAttempts] = useState<string[]>([]);
   const [currentAttempt, setCurrentAttempt] = useState<number>(0);
   const [totalMatch, setTotalMatch] = useState<number>(0);
   const [winnerMatch, setWinnerMatch] = useState<number>(0);
   const [errorMsg, setErrorMsg] = useState<string>("");
+
+  useEffect(() => {
+    const fetchWordsData = async () => {
+      try {
+        const response = await fetch(`/words.json`);
+        const data: Words = await response.json();
+        setWordList(data);
+      } catch (error) {
+        console.error("Error loading words data:", error);
+      }
+    };
+
+    fetchWordsData();
+  }, []);
 
   const normalizeWord = (word: string): string => {
     return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -128,7 +140,6 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
       value={{
         errorMsg,
         filteredWords,
-        wordList,
         wordChosen,
         attempts,
         currentAttempt,
