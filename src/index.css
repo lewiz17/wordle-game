@@ -93,10 +93,12 @@
     position: fixed;
   }
   .hold-modal .modal {
-    margin-top: 57px;
+    padding-top: 57px;
+    padding-bottom: 57px;
   }
   .hold-modal.stats .modal {
-    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .hold-modal.stats .modal .modal-wrapper {
     padding: 54px 0px 27px 0px;
@@ -105,14 +107,14 @@
   .modal {
     max-width: 546px;
     width: 100%;
-    overflow: auto;
-    border: 1px solid #000;
-    @apply bg-gray5;
-    border-radius: 15px;
     position: absolute;
   }
   .modal-wrapper {
     padding: 54px 16px 27px 42px;
+    overflow: auto;
+    border: 1px solid #000;
+    @apply bg-gray5;
+    border-radius: 15px;
   }
   .modal-wrapper h2 {
     font-size: 35px;
