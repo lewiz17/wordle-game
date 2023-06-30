@@ -8,9 +8,15 @@ export default {
       fontFamily: {
         body: "Roboto",
       },
+      backgroundImage: {
+        toggle: "var(--bg-toggle)",
+      },
       colors: {
         white: "#ffffff",
-        whiteOverlay: "rgba(243, 243, 243, 0.89)",
+        toolbar: "hsla(var(--background-header))",
+        overlay: "hsla(var(--background-overlay))",
+        keyboard: "hsla(var(--background-keyboard))",
+        icon: "hsla(var(--bg-icon))",
         black: "#000000",
         black2: "#202537",
         black3: "#56575E",
@@ -22,6 +28,8 @@ export default {
         gray4: "#D3D6DA",
         gray5: "#f3f3f3",
         gray6: "#818181",
+        background: "hsla(var(--background))",
+        foreground: "hsla(var(--foreground))",
       },
       animation: {
         flip: "flip 0.35s linear",

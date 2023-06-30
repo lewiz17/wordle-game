@@ -5,6 +5,7 @@ import {
   ReactNode,
   useCallback,
   useEffect,
+  useMemo,
 } from "react";
 
 interface Words {
@@ -60,7 +61,7 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
     return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
 
-  const filterWords = useCallback((words) => {
+  const filterWords = useCallback((words: string[]) => {
     return words
       .filter((word) => word.length === 5)
       .map((word) => normalizeWord(word));
@@ -76,13 +77,13 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
   const allAttempts = attempts.slice(0, currentAttempt).join("").split("");
 
   const exactAttempts = wordChosen
-    .split("")
+    ?.split("")
     .filter((letter, i) =>
       attempts.slice(0, currentAttempt).some((word) => word[i] === letter)
     );
 
   const presentAttempts = wordChosen
-    .split("")
+    ?.split("")
     .filter((letter) => allAttempts.includes(letter));
 
   const init = (): void => {

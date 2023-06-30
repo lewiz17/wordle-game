@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, type }) => {
         type ? type : ""
       } justify-center animate-fadeInW`}
     >
-      <div className="overlay bg-whiteOverlay"></div>
+      <div className="overlay bg-overlay"></div>
       <div className="modal">
         {onClose && (
           <div className="flex justify-end">
@@ -41,7 +41,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, type }) => {
           </div>
         )}
 
-        <div className="modal-wrapper">{children}</div>
+        <div className="modal-wrapper bg-background text-foreground">
+          {children}
+        </div>
       </div>
     </div>
   );

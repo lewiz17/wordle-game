@@ -9,7 +9,7 @@ export default function KeyBoard(): JSX.Element {
   const keyboardChars = ["qwertyuiop", "asdfghjklñ", "zxcvbnm"];
 
   return (
-    <div className="hold-keyboard w-3/6 flex flex-col pt-[33px]">
+    <div className="hold-keyboard bg-toolbar w-3/6 flex flex-col pt-[33px]">
       {keyboardChars.map((row, i) => (
         <div
           className={`flex justify-center gap-[9.5px] ${
@@ -28,7 +28,7 @@ export default function KeyBoard(): JSX.Element {
               ? "bg-yellow text-white"
               : allAttempts.includes(char)
               ? "bg-gray6 text-white"
-              : "bg-gray4";
+              : "bg-keyboard text-foreground";
             return (
               <button
                 key={i}
@@ -43,14 +43,14 @@ export default function KeyBoard(): JSX.Element {
       ))}
       <div className={`relative`}>
         <button
-          className={`flex absolute box-key big items-center justify-center uppercase bg-gray4`}
+          className={`flex absolute box-key big items-center justify-center uppercase bg-keyboard text-foreground`}
           onClick={() => onSelectKey("Enter")}
           style={{ top: "-51px", left: "22.5px" }}
         >
           Enter
         </button>
         <button
-          className={`flex absolute box-key big items-center justify-center uppercase bg-gray4`}
+          className={`flex absolute box-key big items-center justify-center uppercase bg-keyboard text-foreground`}
           onClick={() => onSelectKey("Backspace")}
           style={{ top: "-51px", right: "82.5px" }}
         >
