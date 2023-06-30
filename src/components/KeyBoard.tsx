@@ -1,4 +1,3 @@
-import { useId } from "react";
 import { useGameContext } from "../context/wordle";
 import { DeleteIcon } from "./Icons";
 

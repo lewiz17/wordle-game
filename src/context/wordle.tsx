@@ -5,7 +5,6 @@ import {
   ReactNode,
   useCallback,
   useEffect,
-  useMemo,
 } from "react";
 
 interface Words {
