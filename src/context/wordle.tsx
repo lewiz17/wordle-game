@@ -76,13 +76,13 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
   const allAttempts = attempts.slice(0, currentAttempt).join("").split("");
 
   const exactAttempts = wordChosen
-    ?.split("")
+    .split("")
     .filter((letter, i) =>
       attempts.slice(0, currentAttempt).some((word) => word[i] === letter)
     );
 
   const presentAttempts = wordChosen
-    ?.split("")
+    .split("")
     .filter((letter) => allAttempts.includes(letter));
 
   const init = (): void => {
