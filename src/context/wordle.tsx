@@ -6,6 +6,7 @@ import {
   useCallback,
   useEffect,
 } from "react";
+import { removeAccent } from "../helpers/utils";
 
 interface Words {
   words: string[];
@@ -56,14 +57,10 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
     fetchWordsData();
   }, []);
 
-  const normalizeWord = (word: string): string => {
-    return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  };
-
   const filterWords = useCallback((words: string[]) => {
     return words
       .filter((word) => word.length === 5)
-      .map((word) => normalizeWord(word));
+      .map((word) => removeAccent(word));
   }, []);
 
   const filteredWords = filterWords(wordList.words as string[]);
@@ -121,7 +118,7 @@ const WordleProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
 
-    if (attempts[currentAttempt].length < 5 && /^[A-z]$/i.test(key)) {
+    if (attempts[currentAttempt].length < 5 && /^\p{L}$/iu.test(key)) {
       setAttempts((prevAttempts) => {
         const updatedAttempts = [...prevAttempts];
         updatedAttempts[currentAttempt] =

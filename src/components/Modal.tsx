@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,15 +8,6 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, type }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const closeModal = () => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsAnimating(false);
-      onClose();
-    }, 300);
-  };
 
   if (!isOpen) {
     return null;
@@ -34,7 +25,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, type }) => {
           <div className="flex justify-end">
             <button
               className="text-gray-600 hover:text-gray-900"
-              onClick={closeModal}
             >
               Cerrar
             </button>
